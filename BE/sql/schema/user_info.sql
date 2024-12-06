@@ -1,4 +1,5 @@
--- Tạo bảng
+-- +goose Up
+-- +goose StatementBegin
 CREATE TABLE IF NOT EXISTS user_info
 (
     user_id                BIGSERIAL PRIMARY KEY,               --Primary key for user ID
@@ -6,10 +7,10 @@ CREATE TABLE IF NOT EXISTS user_info
     user_nickname          VARCHAR(255),                        --Nickname of the user
     user_avatar            VARCHAR(255),                        --Avatar of the user
     user_state             SMALLINT     NOT NULL,               --User state(enum): 0-Locked, 1-Activated, 2-Not Activated
-    user_mobile            VARCHAR(11),                         --User's mobile phone number
+    user_mobile            VARCHAR(20),                         --User's mobile phone number
     user_gender            SMALLINT,                            --User's gender(enum): 0-Secret, 1-Male, 2-Female
     user_birthday          DATE,                                --Date of birth
-    user_email             VARCHAR(255),                             --User email address
+    user_email             VARCHAR(255),                        --User email address
     user_is_authentication SMALLINT     NOT NULL,               --Authentication status (enum): 0-Not Authenticated, 1-Pending, 2-Authenticated, 3-Failed
 -- Add timestamps for record creation and updates
     created_at             TIMESTAMP DEFAULT CURRENT_TIMESTAMP, --Record creation time
@@ -31,4 +32,9 @@ COMMENT ON COLUMN user_info.user_is_authentication is 'Authentication status: 0-
 COMMENT ON COLUMN user_info.created_at is 'Record creation time';
 COMMENT ON COLUMN user_info.updated_at is 'Record update time';
 
+-- +goose StatementEnd
+-- +goose Down
+
+-- +goose StatementBegin
 DROP TABLE IF EXISTS user_info;
+-- +goose StatementEnd
