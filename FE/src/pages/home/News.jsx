@@ -47,9 +47,7 @@ const news = [
 const News = () => {
     return (
         <div className='px-12 py-14'>
-            <h2 className='text-3xl font-semibold mb-6'>
-                News
-            </h2>
+            <h2 className='text-3xl font-semibold mb-6'>News</h2>
             <Swiper
                 slidesPerView={1}
                 spaceBetween={30}
@@ -75,15 +73,7 @@ const News = () => {
                     news.map((item, index) => (
                         <SwiperSlide key={index}>
                             <div className='flex flex-row items-start gap-8'>
-                                {/* Image on the Left */}
-                                <div className='w-1/3 flex-shrink-0'>
-                                    <img
-                                        src={item.image}
-                                        alt="new-img"
-                                        className='w-full h-40 object-cover rounded-lg'
-                                    />
-                                </div>
-                                {/* Content on the Right */}
+                                {/* Content on the Left */}
                                 <div className='w-2/3'>
                                     <Link to="/" className='block'>
                                         <h3 className='text-lg font-medium hover:text-blue-500 mb-4'>
@@ -95,8 +85,17 @@ const News = () => {
                                         {item.description}
                                     </p>
                                 </div>
+                                {/* Image on the Right */}
+                                <div className='w-1/3 flex-shrink-0'>
+                                    <img
+                                        src={item.image}
+                                        alt="new-img"
+                                        className='w-full object-cover rounded-lg'
+                                    />
+                                </div>
                             </div>
                         </SwiperSlide>
+
                     ))
                 }
             </Swiper>
