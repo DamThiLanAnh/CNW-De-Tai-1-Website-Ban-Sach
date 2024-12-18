@@ -1,3 +1,6 @@
+import Link from 'react-router-dom'
+import { FaGoogle } from "react-icons/fa";
+
 const Login = () => {
     return (
         <div className='h-[calc(100vh-120px) flex justify-center items-center'>
@@ -29,9 +32,6 @@ const Login = () => {
                         />
                     </div>
 
-
-                    <p className="text-red-500 text-xs italic mb-3">Message</p>
-
                     <div className="flex flex-wrap space-y-2.5 items-center justify-between">
                         <button
                             className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
@@ -40,6 +40,14 @@ const Login = () => {
                             Login
                         </button>
                     </div>
+                    <p>
+                        Have not account? Please <a href='/register' className="text-blue-500">Register</a>
+                    </p>
+                    <button className="w-full mt-4 flex items-center justify-center bg-gray-900 text-white border hover:bg-blue-700 font-semibold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                        type="button">
+                        <FaGoogle className="mr-2" />
+                        <span>Sign in with Google</span>
+                    </button>
                 </form>
             </div>
         </div>
