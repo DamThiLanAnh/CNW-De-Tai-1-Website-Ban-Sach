@@ -5,7 +5,8 @@ Backend có thể sử dụng SpringBoot/Python Web/NodeJS.
 
 - [x] Login
 - [x] Register
-- [ ] ShoppingCart
+- [x] ShoppingCart
+- [ ] CRUD
 - [ ] Paging
 - [ ] Search
 - [ ] Rest API
