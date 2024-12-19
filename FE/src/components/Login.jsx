@@ -1,4 +1,3 @@
-import Link from 'react-router-dom'
 import { FaGoogle } from "react-icons/fa";
 
 const Login = () => {
