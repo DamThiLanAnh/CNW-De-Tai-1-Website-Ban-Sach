@@ -1,3 +1,4 @@
+import { useSelector } from "react-redux";
 import { Link } from "react-router"
 import { HiBars3CenterLeft } from "react-icons/hi2";
 import { CiSearch } from "react-icons/ci";
@@ -14,7 +15,9 @@ const navigation = [
     { name: "Check Out", href: "/checkout" },
 ]
 const Navbar = () => {
-    const [isDropdownOpen, setIsDropdownOpen] = useState(false)
+    // const [isDropdownOpen, setIsDropdownOpen] = useState(false)
+    // const cartItems = useSelector((state) => state.cart.cartItems || [])
+    // console.log(cartItems)
     const currentUser = false
     return (
         <>
@@ -42,7 +45,9 @@ const Navbar = () => {
                         <div>
                             {
                                 currentUser ? <>
-                                    <button onClick={() => setIsDropdownOpen(!isDropdownOpen)} >
+                                    <button
+                                    // onClick={() => setIsDropdownOpen(!isDropdownOpen)} 
+                                    >
                                         <img src={avatar_user} alt="avatar_user" className={
                                             `size-7 rounded-full ${currentUser ? 'ring-2 ring-blue-500' : ''}`} />
                                     </button>
@@ -77,10 +82,12 @@ const Navbar = () => {
                         <Link to={'/cart'} className="bg-primary p1 sm:px-6 px-2 flex items-center
                         rounded-sm">
                             <MdOutlineShoppingCart className="size-6" />
-                            <span className="text-sm font-semibold sm:ml-1">0</span>
+                            {/* {
+                                cartItems.length > 0 && <span className="text-sm font-semibold sm:ml-1">{cartItems.length}</span>
+                            } */}
+                            <span className="text-sm font-semibold sm:ml-1">1</span>
                         </Link >
                     </div>
-
                 </nav >
             </header >
         </>

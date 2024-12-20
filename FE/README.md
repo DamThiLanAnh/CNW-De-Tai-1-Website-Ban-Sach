@@ -3,10 +3,10 @@ Xây dựng ứng dụng ReactJS bao gồm một website bán sách CRUD Login/L
 ShoppingCart Paging Search Rest API. Ứng dụng bao gồm ReactJS – Bootstrap – MySQL.
 Backend có thể sử dụng SpringBoot/Python Web/NodeJS.
 
-- [x] Login
+- [x] Login/Logout
 - [x] Register
 - [x] ShoppingCart
 - [ ] CRUD
 - [ ] Paging
-- [ ] Search
+- [ ] Search (elasticsearch)
 - [ ] Rest API
