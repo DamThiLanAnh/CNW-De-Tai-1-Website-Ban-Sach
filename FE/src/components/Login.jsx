@@ -10,9 +10,9 @@ const Login = () => {
         watch,
         formState: { errors },
     } = useForm();
-    const onSubmit = (data) => {console(data)}
+    const onSubmit = (data) => { console(data) }
     const handleGoogleSignIn = (data) => {
-        
+
     }
 
     return (
@@ -71,10 +71,10 @@ const Login = () => {
 
                 {/* Google sign in */}
                 <button
-                    className="w-full mt-4 flex items-center justify-center bg-gray-900 text-white border hover:bg-blue-700 font-semibold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-                    type="button"
                     onClick={handleGoogleSignIn()}
-                >
+                    className="w-full mt-4 flex items-center justify-center bg-gray-900 text-white border hover:bg-blue-700 font-semibold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                    type="button">
+
                     <FaGoogle className="mr-2" />
                     <span>Sign in with Google</span>
                 </button>
