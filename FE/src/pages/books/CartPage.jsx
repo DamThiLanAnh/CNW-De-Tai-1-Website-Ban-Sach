@@ -1,16 +1,19 @@
 // import React from 'react'
 import { Link } from "react-router-dom"
-import { useSelector } from "react-redux"
+import { useSelector, useDispatch } from "react-redux"
 import { getImgUrl } from "../../utils/getImgUrl"
-// import { removeFromCart } from "../../redux/features/cart/cartSlice"
+import { removeFromCart, clearCart } from "../../redux/features/cart/cartSlice"
 
 const CartPage = () => {
   const cartItems = useSelector((state) => state.cart.cartItems) || []
   const totalPrice = cartItems.reduce((acc, item) => acc + item.newPrice, 0).toFixed(2)
-  // const dispatch = useDispatch()
-  // const handleRemoveFroCart = (product) => {
-  //   dispatch(removeFromCart(product))
-  // }
+  const dispatch = useDispatch()
+  const handleRemoveFromCart = (product) => {
+    dispatch(removeFromCart(product))
+  }
+  const handleClearCart = () => {
+    dispatch(clearCart())
+  }
   return (
     <>
       <div className="flex mt-12 h-full flex-col overflow-hidden bg-white shadow-xl">
@@ -20,7 +23,7 @@ const CartPage = () => {
             <div className="ml-3 flex h-7 items-center ">
               <button
                 type="button"
-                // onClick={handleRemoveFroCart}
+                onClick={handleClearCart}
                 className="relative -m-2 py-1 px-2 bg-red-500 text-white rounded-md hover:bg-secondary transition-all duration-200  "
               >
                 <span className="">Clear Cart</span>
@@ -32,7 +35,7 @@ const CartPage = () => {
             <div className="flow-root">
               {/* condition */}
               {
-                cartItems.length > 0 ? (
+                cartItems?.length > 0 ? (
                   <ul role="list" className="-my-6 divide-y divide-gray-200">
                     {
                       cartItems.map((product) => (
@@ -59,7 +62,11 @@ const CartPage = () => {
                               <p className="text-gray-500"><strong>Qty:</strong> 1</p>
 
                               <div className="flex">
-                                <button type="button" className="font-medium text-indigo-600 hover:text-indigo-500">
+                                <button
+                                  type="button"
+                                  className="font-medium text-indigo-600 hover:text-indigo-500"
+                                  onClick={() => handleRemoveFromCart(product)}
+                                >
                                   Remove
                                 </button>
                               </div>

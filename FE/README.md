@@ -6,7 +6,10 @@ Backend có thể sử dụng SpringBoot/Python Web/NodeJS.
 - [x] Login/Logout
 - [x] Register
 - [x] ShoppingCart
-- [ ] CRUD
+- [x] CRUD
 - [ ] Paging
-- [ ] Search (elasticsearch)
+- [ ] Search
 - [ ] Rest API
+
+libraries using: tailwind, react-router-dom, swiperjs, sweetalert2
+icon come from: react- icon
