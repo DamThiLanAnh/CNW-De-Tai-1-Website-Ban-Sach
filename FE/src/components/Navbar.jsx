@@ -18,7 +18,7 @@ const Navbar = () => {
     const [isDropdownOpen, setIsDropdownOpen] = useState(false)
     const cartItems = useSelector((state) => state.cart.cartItems || [])
     console.log(cartItems)
-    const currentUser = false
+    const currentUser = true
     return (
         <>
             <header className="max-w-screen-2xl mx-auto px-4 py-6">
