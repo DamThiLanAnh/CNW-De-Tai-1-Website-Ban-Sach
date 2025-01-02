@@ -1,7 +1,12 @@
 import { Link } from "react-router-dom"
 import { useSelector } from "react-redux"
+<<<<<<< HEAD
 import { useForm } from "react-hook-form"
 import { useState } from "react"
+=======
+import { useForm } from "react-hook-form";
+import { useState } from "react";
+>>>>>>> d133c2af20f0e37c136555eee9331e28f4de141a
 
 const CheckOut = () => {
     const cartItems = useSelector((state) => state.cart.cartItems)
@@ -75,7 +80,11 @@ const CheckOut = () => {
                                                 <label html="phone">Phone Number</label>
                                                 <input
                                                     {...register("phone", { required: true })}
+<<<<<<< HEAD
                                                     type="number" name="phone" id="phone" className="h-10 border mt-1 rounded px-4 w-full bg-gray-50" placeholder="your phone number" />
+=======
+                                                    type="number" name="phone" id="phone" className="h-10 border mt-1 rounded px-4 w-full bg-gray-50" placeholder="+123 456 7890" />
+>>>>>>> d133c2af20f0e37c136555eee9331e28f4de141a
                                             </div>
 
                                             <div className="md:col-span-3">
