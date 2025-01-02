@@ -7,9 +7,9 @@ Backend có thể sử dụng SpringBoot/Python Web/NodeJS.
 - [x] Register
 - [x] ShoppingCart
 - [x] CRUD
-- [x] Paging
+- [ ] Paging
 - [ ] Search
-- [ ] Rest API
+- [x] Rest API
 
 libraries using: tailwind, react-router-dom, swiperjs, sweetalert2
 icon come from: react- icon
