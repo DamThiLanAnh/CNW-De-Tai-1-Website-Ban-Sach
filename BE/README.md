@@ -1,0 +1,2 @@
+- step1 setup: fist created BE founder cd to the founder and run: npm init -y (create package.json), npm install express
+- step2: create index.js file and write hello world run with command: node index.js
