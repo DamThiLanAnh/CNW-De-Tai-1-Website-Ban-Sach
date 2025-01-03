@@ -4,6 +4,10 @@
 - step3: install nodemon
 npm install -g nodemon
 npm install --save-dev nodemon
-- step4: install database mongoose: npm install mongoose --save
+- step4: install lib mongoose to working with mongodb : npm install mongoose --save 
 - step5: create mongodb get password and connect
 - step6: install and define dotenv (npm i dotenv)
+- step7: create founder src with (book, users,orders, stats, middleware)
+## code
+- step8: in founder book create book_mode.js to define and manage model in MongoDB through Mongoose.
+
