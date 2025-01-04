@@ -5,12 +5,11 @@ import SearchResult from "./SearchResult";
 import { useDebounce } from "../../hooks/useDebounce";
 import { useSelector } from "react-redux";
 import Loading from "../Loading/Loading";
-const SearchHeader = () => {
+const SearchHeader = ({books}) => {
   const [filteredBooks, setFilterdBooks] = useState([]);
   const [valueSearch, setValueSearch] = useState("");
   const finalSearchValue = useDebounce(valueSearch);
   const [isLoading, setIsLoading] = useState(false);
-  const books = useSelector((state) => state.books.listBooks);
   const handleChangeSearchValue = (e) => {
     setValueSearch(e?.target?.value);
   };

@@ -9,5 +9,8 @@ npm install --save-dev nodemon
 - step6: install and define dotenv (npm i dotenv)
 - step7: create founder src with (book, users,orders, stats, middleware)
 ## code
-- step8: in founder book create book_mode.js to define and manage model in MongoDB through Mongoose.
-
+### books
+- step8: in founder book create book_mode.js to define Schema ,Model and manage model in MongoDB through Mongoose.
+- step 9: in founder book create book_route.js to manage router related to books and import cors (npm i cors) to integration go to the index.js
+- step 10: create controller (implement logic) writing API CRUD and check with postman
+- step 11: font-end connect api

@@ -7,6 +7,7 @@ import { MdOutlineShoppingCart } from "react-icons/md";
 import {  useState } from "react";
 import avatar_user from "../assets/avatar.png";
 import SearchHeader from "./Search/SearchHeader";
+import { useFetchAllBooksQuery } from "../redux/features/books/booksAPI";
 
 const navigation = [
   { name: "Dashboard", href: "/dashboard" },
@@ -18,6 +19,8 @@ const Navbar = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const cartItems = useSelector((state) => state.cart.cartItems || []);
   const currentUser = false;
+  const {data, error} = useFetchAllBooksQuery()
+  console.log("🚀 ~ Navbar ~ data:", data)
   return (
     <>
       <header className="max-w-screen-2xl mx-auto px-4 py-6">
