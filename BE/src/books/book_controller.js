@@ -33,6 +33,7 @@ const getSingleBook = async (req, res) => {
         res.status(200).send(book)
 
     } catch (error) {
+
         console.error("Error fetching book", error);
         res.status(500).send({ message: "Failed to fetch book" })
     }
