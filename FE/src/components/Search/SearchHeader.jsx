@@ -1,11 +1,9 @@
-import React from "react";
 import { CiSearch } from "react-icons/ci";
 import { useEffect, useState } from "react";
 import SearchResult from "./SearchResult";
 import { useDebounce } from "../../hooks/useDebounce";
-import { useSelector } from "react-redux";
 import Loading from "../Loading/Loading";
-const SearchHeader = ({books}) => {
+const SearchHeader = ({ books }) => {
   const [filteredBooks, setFilterdBooks] = useState([]);
   const [valueSearch, setValueSearch] = useState("");
   const finalSearchValue = useDebounce(valueSearch);
@@ -19,12 +17,17 @@ const SearchHeader = ({books}) => {
       return;
     }
     setIsLoading(true);
+    if (!Array.isArray(books)) {
+      setFilterdBooks([]);
+      setIsLoading(false);
+      return;
+    }
     const listBooks = books.filter((book) =>
       book?.title?.toLowerCase()?.includes(valueSearch.toLowerCase())
     );
     setFilterdBooks(listBooks);
     setIsLoading(false);
-  }, [finalSearchValue]);
+  }, [finalSearchValue, books]);
 
   return (
     <div className="relative sm:w-72 w-40 border-gray-300 border rounded-md">

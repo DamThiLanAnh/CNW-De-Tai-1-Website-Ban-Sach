@@ -1,4 +1,3 @@
-import React from "react";
 import { getImgUrl } from "../../utils/getImgUrl";
 import { Link } from "react-router-dom";
 const BookCard = ({ book }) => {
