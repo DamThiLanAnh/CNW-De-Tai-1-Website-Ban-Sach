@@ -6,7 +6,7 @@ import { useAuth } from '../context/AuthContext';
 
 const Register = () => {
     const [message, setMessage] = useState("");
-    const { registerUser, signInWithGoogle } = useAuth();
+    const { registerUser } = useAuth();
     console.log(registerUser)
     const {
         register,
@@ -17,7 +17,7 @@ const Register = () => {
 
     //   register user
     const onSubmit = async (data) => {
-        // console.log(data)
+        //console.log(data)
         try {
             await registerUser(data.email, data.password);
             alert("User registered successfully!")
