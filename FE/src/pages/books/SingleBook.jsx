@@ -1,4 +1,3 @@
-import React from 'react';
 import { FiShoppingCart } from "react-icons/fi";
 import { useParams } from "react-router-dom";
 import { getImgUrl } from '../../utils/getImgUrl';
@@ -31,15 +30,20 @@ const SingleBook = () => {
 
     return (
         <>
-            <div className="max-w-lg shadow-md p-5">
-                {/* Book Details */}
-                <h1 className="text-2xl font-bold mb-6">{book.title}</h1>
-                <div>
+            {/* Book Details */}
+            <div className="max-w-full shadow-md px-10 p-2 flex">
+                {/* Left side: Image and Title */}
+                <div className="w-1/3 pr-6">
+                    <h1 className="text-2xl font-bold mb-2 pb-3">{book.title}</h1>
                     <img
                         src={getImgUrl(book.coverImage)}
                         alt={book.title}
-                        className="mb-8"
+                        className="mb-6 px-5"
                     />
+                </div>
+
+                {/* Right side: Author, Published, Category, Description */}
+                <div className="w-2/3 pt-11">
                     <div className="mb-5">
                         <p className="text-gray-700 mb-2">
                             <strong>Author:</strong> {book.author || 'Unknown'}
@@ -64,6 +68,7 @@ const SingleBook = () => {
                     </button>
                 </div>
             </div>
+
             {/* Books in the Same Category */}
             <div className="mt-10">
                 <h2 className="text-xl font-bold mb-6">Books in the Same Category</h2>
