@@ -8,6 +8,7 @@ import { useState } from "react";
 import avatar_user from "../assets/avatar.png";
 import SearchHeader from "./Search/SearchHeader";
 import { useFetchAllBooksQuery } from "../redux/features/books/booksAPI";
+import { useAuth } from "../context/AuthContext";
 
 const navigation = [
   { name: "Dashboard", href: "/dashboard" },
@@ -18,9 +19,13 @@ const navigation = [
 const Navbar = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const cartItems = useSelector((state) => state.cart.cartItems || []);
-  const currentUser = false;
+
+  const { currentUser, logout } = useAuth();
+  const handleLogOut = () => {
+    logout()
+  }
   const { data, error } = useFetchAllBooksQuery()
-  console.log("🚀 ~ Navbar ~ data:", data)
+  // console.log("🚀 ~ Navbar ~ data:", data)
   return (
     <>
       <header className="max-w-screen-2xl mx-auto px-4 py-6">
@@ -65,14 +70,21 @@ const Navbar = () => {
                               } // dropdown
                             }
                           >
-                            <Link
-                              to={item.href}
-                              className="block px-4 py-2 text-sm hover:bg-gray-100"
+                            <Link to={item.href}
+                              className="block px-4 py-2 text-sm hover:bg-gray-300"
                             >
                               {item.name}
                             </Link>
                           </li>
                         ))}
+                        <li>
+                          <button
+                            onClick={handleLogOut}
+                            className="block w-full text-left px-4 py-2 text-sm hover:bg-gray-300"
+                          >
+                            Logout
+                          </button>
+                        </li>
                       </ul>
                     </div>
                   )}

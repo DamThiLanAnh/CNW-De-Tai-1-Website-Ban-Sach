@@ -1,12 +1,14 @@
-import { createContext, useContext, useState } from 'react';
+import { createContext, useContext, useEffect, useState } from 'react';
 import { auth } from '../firebase/firebase_config';
-import { createUserWithEmailAndPassword } from 'firebase/auth';
+import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut } from 'firebase/auth';
+import { GoogleAuthProvider } from "firebase/auth";
 
 const AuthContext = createContext();
 
 export const useAuth = () => {
     return useContext(AuthContext);
 }
+const googleProvider = new GoogleAuthProvider();
 
 // authProvider
 export const AuthProvide = ({ children }) => {
@@ -19,9 +21,45 @@ export const AuthProvide = ({ children }) => {
         // setCurrentUser(userCredential.user); // Set the current user after successful registration
     };
 
+    //  login user
+    const loginUser = async (email, password) => {
+        return await signInWithEmailAndPassword(auth, email, password)
+    }
+
+    // sign in with google
+    const signInWithGoogle = async () => {
+        return await signInWithPopup(auth, googleProvider)
+    }
+
+    // sign out user
+    const logout = () => {
+        return signOut(auth);
+    };
+
+    // mange user
+    useEffect(() => {
+        const unsubscribe = onAuthStateChanged(auth, (user) => {
+            setCurrentUser(user);
+            setLoading(false);
+
+            if (user) {
+                const { email, displayName, photoURL } = user;
+                const userData = {
+                    email,
+                    username: displayName,
+                    photo: photoURL,
+                }
+            }
+        })
+        return () => unsubscribe();
+    }, [])
+
     const value = {
         currentUser,
-        registerUser
+        registerUser,
+        loginUser,
+        signInWithGoogle,
+        logout,
     };
 
     return (
