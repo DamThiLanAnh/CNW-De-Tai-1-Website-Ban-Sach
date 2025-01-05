@@ -4,7 +4,7 @@ import { HiBars3CenterLeft } from "react-icons/hi2";
 import { HiOutlineUser } from "react-icons/hi";
 import { FaRegHeart } from "react-icons/fa";
 import { MdOutlineShoppingCart } from "react-icons/md";
-import {  useState } from "react";
+import { useState } from "react";
 import avatar_user from "../assets/avatar.png";
 import SearchHeader from "./Search/SearchHeader";
 import { useFetchAllBooksQuery } from "../redux/features/books/booksAPI";
@@ -19,7 +19,7 @@ const Navbar = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const cartItems = useSelector((state) => state.cart.cartItems || []);
   const currentUser = false;
-  const {data, error} = useFetchAllBooksQuery()
+  const { data, error } = useFetchAllBooksQuery()
   console.log("🚀 ~ Navbar ~ data:", data)
   return (
     <>
@@ -32,7 +32,7 @@ const Navbar = () => {
             </Link>
 
             {/* search input */}
-            <SearchHeader />
+            <SearchHeader books={data} />
           </div>
 
           {/* right side */}
@@ -44,9 +44,8 @@ const Navbar = () => {
                     <img
                       src={avatar_user}
                       alt="avatar_user"
-                      className={`size-7 rounded-full ${
-                        currentUser ? "ring-2 ring-blue-500" : ""
-                      }`}
+                      className={`size-7 rounded-full ${currentUser ? "ring-2 ring-blue-500" : ""
+                        }`}
                     />
                   </button>
                   {/* Show dropdowns */}
