@@ -2,11 +2,13 @@ import { Link } from "react-router-dom"
 import { useSelector } from "react-redux"
 import { useForm } from "react-hook-form"
 import { useState } from "react";
+import { useAuth } from "../../context/AuthContext";
 
 const CheckOut = () => {
     const cartItems = useSelector(state => state.cart.cartItems)
     const totalPrice = cartItems.reduce((acc, item) => acc + item.newPrice, 0).toFixed(2)
-    const currentUser = true;
+
+    const currentUser = useAuth();
     const {
         register,
         handleSubmit,
@@ -19,7 +21,7 @@ const CheckOut = () => {
 
         const newOrder = {
             name: data.name,
-            email: currentUser.email,
+            email: currentUser?.email,
             address: {
                 city: data.city,
                 country: data.country,
@@ -29,7 +31,6 @@ const CheckOut = () => {
             phone: data.phone,
             productIds: cartItems.map(item => item?._id),
             totalPrice: totalPrice,
-            // status: 'pending',
         }
         console.log(newOrder)
     }
