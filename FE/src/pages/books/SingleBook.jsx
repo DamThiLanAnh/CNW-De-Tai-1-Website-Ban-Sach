@@ -46,11 +46,11 @@ const SingleBook = () => {
                 <div className="w-2/3 pt-11">
                     <div className="mb-5">
                         <p className="text-gray-700 mb-2">
-                            <strong>Author:</strong> {book.author || 'Unknown'}
+                            <strong>Author:</strong> {book.author || 'Harper Lee'}
                         </p>
                         <p className="text-gray-700 mb-4">
                             <strong>Published:</strong>{' '}
-                            {book.createdAt ? new Date(book.createdAt).toLocaleDateString() : 'Unknown'}
+                            {book.createdAt ? new Date(book.createdAt).toLocaleDateString() : '6/1/2025'}
                         </p>
                         <p className="text-gray-700 mb-4 capitalize">
                             <strong>Category:</strong> {book.category || 'Uncategorized'}
